@@ -13,9 +13,16 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name', 90)->unique();
+            $table->string('coach',80);
+            $table->string('arena', 75);
+            $table->integer('players');
+            $table->year('established_year');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
+
 
     /**
      * Reverse the migrations.

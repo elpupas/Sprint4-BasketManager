@@ -28,9 +28,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+require __DIR__.'/auth.php';
 //Teams Route
 Route::resource('teams', TeamController::class);
 
 //Games Route
+Route::controller(GameController::class)->group(function(){
+    Route::get('games/create/{id}','create')->name('games.create');
+    Route::post('games','store')->name('games.store');
+    Route::get('games/{game}','show')->name('games.show');
+    Route::get('games','index')->name('games.index');
+    Route::get('games/{game}/edit','edit')->name('games.edit');
+    Route::put('games/{game}','update')->name('games.update');
+    Route::delete('games/{game}','destroy')->name('games.destroy');
 
-require __DIR__.'/auth.php';
+});
+
+

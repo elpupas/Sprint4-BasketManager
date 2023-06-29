@@ -28,4 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//Teams Route
+Route::resource('teams', TeamController::class);
+
+//Games Route
+
 require __DIR__.'/auth.php';

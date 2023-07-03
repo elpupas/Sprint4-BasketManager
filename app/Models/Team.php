@@ -19,6 +19,6 @@ class Team extends Model
         return $this->hasMany(Game::class, 'home_team');
     }
     public function oponent(){
-        return $this->hasMany(Game::class, 'away_team');
+        return $this->hasMany(Game::class, 'visitor_team');
     }
 }

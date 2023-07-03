@@ -16,7 +16,7 @@ class Game extends Model
     }
     //relacion inversa con modelo Game
     public function visitorGames() {
-        return $this->belongsTo(Game::class,'away_team');
+        return $this->belongsTo(Game::class,'visitor_team');
     }
 
 }

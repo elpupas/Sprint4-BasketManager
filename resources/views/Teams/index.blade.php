@@ -1,7 +1,10 @@
 @extends('layouts.plantilla')
 @section('title', 'Team')
 @section('content')
-<h1>index</h1>
+<h1>Todos los equipos</h1>
+<a href="">Registrar equipo</a>
+<a href="">Crear Partido</a>
+
 @endsection
 <!DOCTYPE html>
 <html lang="en">
@@ -11,5 +14,11 @@
     <title>Document</title>
 </head>
 <body>
+   
+    <!-- Show Teams -->
+    <ul>
+        <li><a href=""></a></li>
+    </ul>
 </body>
 </html>
+@endsection

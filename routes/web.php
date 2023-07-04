@@ -17,7 +17,7 @@ use App\Http\Controllers\TeamController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('teams.index');
 });
 
 Route::get('/dashboard', function () {
@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+Route::middleware('auth')->group(function () {
 //Teams Route
 Route::resource('teams', TeamController::class);
 
@@ -45,5 +46,5 @@ Route::controller(GameController::class)->group(function(){
     Route::delete('games/{game}','destroy')->name('games.destroy');
 
 });
-
+});
 

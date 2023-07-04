@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Auth;
 class TeamController extends Controller
 {
     public function index(){
+        $user = Auth::user();
+        $teams = $user->teams;
          
-        $teams = Team::paginate();
+       // $teams = Team::paginate();
 
         return view('teams.index', compact('teams'));
     }
@@ -49,7 +51,7 @@ class TeamController extends Controller
         return redirect()->route('teams.show', $team);
     }
     public function update(Request $request, Team $team){
-        $request->validate(
+      /*  $request->validate(
             [
                 'name' => 'required|min:5',
                 'coach'=>'required|min:5',
@@ -58,7 +60,7 @@ class TeamController extends Controller
                 'establihed_year'=>'required',
 
             ]
-        );
+        );*/
         $team->update($request->all());
 
         return redirect()->route('teams.show', $team);
@@ -66,6 +68,6 @@ class TeamController extends Controller
     }
     public function destroy(Team $team){
         $team->delete();
-        return redirect()->route('team.index');
+        return redirect()->route('teams.index');
     }
 }

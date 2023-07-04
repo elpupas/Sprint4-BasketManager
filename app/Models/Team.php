@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Team extends Model
 {
     use HasFactory;
-    
+    public $timestamps = false;
     protected $guarded = [];
     //relaccion inversa con model User
     public function user(){

@@ -24,7 +24,7 @@ class StoreGame extends FormRequest
         return [
             'away_team' => 'required',
             'game_status'=>'required',
-            'arena'=>'required|min:5',
+            'stadium'=>'required|min:5',
             'game_date'=>'required',
             'game_time'=>'required',
             

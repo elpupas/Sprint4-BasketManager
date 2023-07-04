@@ -40,7 +40,8 @@ class GameController extends Controller
     public function store(StoreGame $request ){
         $game = Game::create($request->all());
 
-        return redirect()->route('games.index');
+
+        return redirect()->route('games.show', $game);
 
     }
 

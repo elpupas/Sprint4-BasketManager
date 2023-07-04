@@ -24,7 +24,7 @@ class StoreTeam extends FormRequest
         return [
         'name' => 'required|min:5',
         'coach'=>'required|min:5',
-        'arena'=>'required|min:5',
+        'stadium'=>'required|min:5',
         'players'=>'required, max:55',
         'establihed_year'=>'required'
         ];

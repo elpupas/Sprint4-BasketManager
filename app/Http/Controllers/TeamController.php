@@ -32,6 +32,7 @@ class TeamController extends Controller
     }
     public function store(StoreTeam $request){
         $team = Team::create($request->all());
+        
 
         return redirect()->route('teams.show', $team);
     }

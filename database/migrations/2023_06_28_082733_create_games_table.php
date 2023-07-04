@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('visitor_team');
             $table->date('game_date');
             $table->time('game_time');
-            $table->string('arena', 50);
+            $table->string('stadium', 50);
             $table->integer('score_home')->nullable();
             $table->integer('score_visitor')->nullable();
             $table->enum('game_status',['win', 'lose', 'comin', 'draw']);

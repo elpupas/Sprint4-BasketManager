@@ -32,8 +32,9 @@ require __DIR__.'/auth.php';
 Route::middleware('auth')->group(function () {
 //Teams Route
 Route::resource('teams', TeamController::class);
-
+});
 //Games Route
+Route::middleware('auth')->group(function () {
 Route::controller(GameController::class)->group(function(){
     Route::get('games/create/{id}','create')->name('games.create');
     Route::post('games','store')->name('games.store');

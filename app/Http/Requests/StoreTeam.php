@@ -22,11 +22,11 @@ class StoreTeam extends FormRequest
     public function rules(): array
     {
         return [
-        'name' => 'required|min:5',
-        'coach'=>'required|min:5',
-        'stadium'=>'required|min:5',
-        'players'=>'required, max:55',
-        'establihed_year'=>'required'
+        'name' => 'required|string|min:5',
+        'coach'=>'required||string|min:7',
+        'stadium'=>'required|string|min:5',
+        'players'=>'required|numeric',
+        'establihed_year'=>'required|date_format:Y-m-d',
         ];
     }
     public function attributes(){

@@ -7,7 +7,9 @@ use App\Models\Team;
 
 
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TeamController extends Controller
 {

@@ -25,11 +25,21 @@ class StoreTeam extends FormRequest
         'name' => 'required|string|min:5',
         'coach'=>'required||string|min:7',
         'stadium'=>'required|string|min:5',
-        'players'=>'required|numeric',
-        'establihed_year'=>'required|date_format:Y-m-d',
+        'players'=>'required|integer|min:9',
+        'established_year'=>'required|date_format:Y|gte:1900',
         ];
     }
     public function attributes(){
-        return['name' =>'Nombre de equipo'];
+        return['name' =>'Nombre de equipo',
+                'coach' => 'Entrenador',
+                ];
+    }
+    
+    public function messages()
+    {
+      return [
+        'established_year' => 'El año debe ser superior a 1900',
+
+      ];  
     }
 }

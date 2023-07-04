@@ -22,9 +22,9 @@ class StoreGame extends FormRequest
     public function rules(): array
     {
         return [
-            'away_team' => 'required',
+            'visitor_team' => 'required',
             'game_status'=>'required',
-            'arena'=>'required|min:5',
+            'stadium'=>'required|string',
             'game_date'=>'required',
             'game_time'=>'required',
             

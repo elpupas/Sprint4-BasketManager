@@ -40,11 +40,22 @@ class GameController extends Controller
     public function store(StoreGame $request ){
         $game = Game::create($request->all());
 
-        return redirect()->route('games.index');
+
+        return redirect()->route('games.show', $game);
 
     }
 
     public function update(Request $request, Game $game){
+        $request->validate(
+            [
+             'visitor_team' => 'required',
+             'game_status'=>'required',
+             'stadium'=>'required',
+             'game_date'=>'required',
+             'game_time'=>'required',
+
+            ]
+        );
         $game->update($request->all());
 
         return redirect()->route('games.show', $game);

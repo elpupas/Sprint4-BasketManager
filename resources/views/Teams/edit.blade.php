@@ -11,21 +11,25 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="{{route('teams.update', $team)}}" method="POST">
+       @csrf
+       @method('put')
+           
+       
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="name" required><br><br>
+        <input type="text" id="nombre" name="name" value="{{$team->name}}"><br><br>
     
         <label for="coach">Coach:</label>
-        <input type="text" id="coach" name="coach" required><br><br>
+        <input type="text" id="coach" name="coach" value="{{$team->coach}}""><br><br>
     
-        <label for="arena">Arena:</label>
-        <input type="text" id="arena" name="arena" required><br><br>
+        <label for="Stadium">Stadium:</label>
+        <input type="text" id="Stadium" name="stadium" value="{{$team->stadium}}"><br><br>
     
         <label for="players">Jugadores:</label>
-        <input type="number" id="players" name="players" required><br><br>  
+        <input type="number" id="players" name="players" value="{{$team->players}}"><br><br>  
 
         <label for="established-year">Año de fundación:</label>
-        <input type="number" id="established-year" name="established_year" required><br><br>
+        <input type="number" id="established-year" name="established_year" value="{{$team->established_year}}"><br><br>
     
         <input type="submit" value="send">
     

@@ -18,10 +18,10 @@
             <div class="max-w-6xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 ">
                 <div class="container mx-auto px-6 py-2">
                     <!--Form-->
-                    <form action="{{ route('teams.create') }}" method="POST"
+                    <form action="{{ route('teams.store') }}" method="POST"
                     class="w-full max-w-sm mx-auto bg-white p-2 rounded-md shadow-md shadow-indigo-700 border-yellow-500  border-[20px]  border-double">
                     @csrf
-                    @method('put')
+                
                     <div class="flex justify-center   ">
                       <a href="{{route('teams.index')}}" class="">
                     <x-application-logo class="w-full sm:w-24 md:w-32 lg:w-32 "></x-application-logo>

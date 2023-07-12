@@ -15,7 +15,7 @@
                     </x-primary-button>
                 </div>
             </x-slot>
-            <div class="mx-8 mt-10">
+            <div class="mx-10 mt-10">
                 <!--Grid-->
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
                     <!-- Show games -->

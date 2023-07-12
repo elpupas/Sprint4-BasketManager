@@ -1,98 +1,73 @@
-
 @extends('layouts.plantilla')
 @section('title', 'Team')
 @section('content')
-<!--<h1>Todos los equipos</h1>-->
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!--<h1>Todos los equipos</h1>-->
 
 
+    <!-- component -->
+    <x-app-layout class="">
+        <x-slot name="header">
+            <div class=" justify-end sm:justify-end md:justify-end items-center">
+                <x-primary-button
+                type="submit"
+               >
+                <a href="{{route('teams.create')}}">Create Team</a>
+            </x-primary-button>
+        
+        
 
-    
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-   <!-- component -->
-   <x-app-layout>
-    <div class="flex flex-col ">
-        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-            <div class="overflow-hidden">
-              <table class="min-w-full text-center">
-                <thead class="border-b">
-                  <tr>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
-                      Name
-                    </th>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
-                      Coach
-                    </th>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
-                      Stadium
-                    </th>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
-                        Players
-                      </th>
-                      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
-                        Established Year
-                      </th>
-                  </tr>
-                </thead>
-                
-                <tbody>
-                    @foreach ($teams as $team)
-                 
-                
-                  <tr class="border-b bg-purple-100 border-pink-200">
-                    <td class="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
-                       <a href="{{route('teams.show', $team->id)}}"> {{$team->name}} </a>
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$team->coach}}
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$team->stadium}}
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$team->players}}
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$team->established_year}}
-                    </td>
-                  </tr>
-              
-                  @endforeach
-                </tbody>
-              </table>
             </div>
-          </div>
+         
+          
+        </x-slot>
+        <div class="mx-8 mt-10 ">
+           
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 text-center">
+               
+                <!-- Show Teams -->
+                @foreach ($teams as $team)
+                    <a href="{{ route('teams.show', $team->id) }}" class=" font-bold hover:text-purple-900">
+                        <div class="bg-purple-700 shadow-lg shadow-yellow-700    border-[32px] border-double  rounded-lg p-4">
+                            <x-application-logo class=" mb-2">
+                            </x-application-logo>
+
+                            <div class="text-center mb-3">
+                                <h2 class="text-2x1 font-bold text-yellow-400 hover:text-yellow-200 sm:text-sm md:text-sm xl:text-xs">
+                                    {{ Str::limit(Str::upper($team->name), 7) }}</h2>
+                            </div>
+                            <div class="text-sm mb-2 text-yellow-400 hover:text-yellow-500">
+                                <span class="font-bold text-black ">Coach:</span>
+                                <div>  {{ $team->coach }}</div>
+                            </div>
+                          
+                            <div class="text-sm mb-2  text-yellow-400 hover:text-yellow-500">
+                                <span class="font-bold text-black">Stadium:</span>
+                                <div> {{ $team->stadium }}</div>
+                            </div>
+                            <div class="text-sm mb-2 text-yellow-400 hover:text-yellow-500">
+                                <span class="font-semibold text-black">Players:</span>
+                                <div>{{ $team->players }}</div>
+                            </div>
+                            <div class="text-sm mb-2 text-yellow-400 hover:text-yellow-500">
+                                <span class="font-semibold text-black">Established Year:</span> 
+                                <div>{{ $team->established_year }}</div>
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
         </div>
-      </div>
-   
-      <x-slot name="header">
-        <div class="flex space-x-14    justify-end >
-          <x-secondary-button
-              type="button"
-              class="border border-indigo-500 bg-indigo-500 text-black rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline"
-          >
-              <a href="{{route('teams.create', $team->id)}}">Create Team</a>
-          </x-secondary-button>
-          
-          
-      </div>
-      
-    </x-slot>
-</x-app-layout>
+
+
+  
+
+    </x-app-layout>
+
+
+    {{ $teams->links() }}
 
 
 
-    <!-- Show Teams -->
- 
-   
-</body>
-</html>
+
 @endsection

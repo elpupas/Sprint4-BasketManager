@@ -13,14 +13,14 @@ use Illuminate\Support\Facades\Auth;
 
 class TeamController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $user = Auth::user();
-        $teams = $user->teams;
-         
-       // $teams = Team::paginate();
-
+        $teams = $user->teams()->orderBy('name', 'asc')->paginate(12);
+    
         return view('teams.index', compact('teams'));
     }
+    
 
     public function create(){
 
@@ -36,8 +36,10 @@ class TeamController extends Controller
     }
     public function store(StoreTeam $request){
         //vincular id de user al campo user_id
+        if(Auth::check()) {
         $request->merge(['user_id' => $request->user()->id]);
         $team = Team::create($request->all());
+        }
       /*  $team = new Team();
         $team->name = $request->name;
         $team->coach = $request->coach;

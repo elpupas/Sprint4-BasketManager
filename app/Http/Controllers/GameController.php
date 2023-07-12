@@ -10,12 +10,19 @@ use App\Models\Team;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GameController extends Controller
 {
     public function index(){
-       $games = Game::paginate();
-       return view('games.index', compact('games'));
+    
+           $user= Auth::user();
+          $team = $user->teams->first();
+           $games = Game::orderby('home_team', 'asc')->paginate(10);
+          
+    
+   
+       return view('games.index', compact('games', 'team'));
 
     }
     
@@ -33,6 +40,7 @@ class GameController extends Controller
     }
 
     public function edit(Game $game){
+        
         $teams = Team::all();	
         return view('games.edit', compact('game', 'teams'));
 
@@ -46,6 +54,11 @@ class GameController extends Controller
     }
 
     public function update(Request $request, Game $game){
+        $gameOne = Game::findOrFail($game);
+
+    if ($gameOne->localTeam->user_id !== Auth::user()->id) {
+        return redirect()->back()->with('error', 'No tienes permiso para editar este equipo.');
+    }else{
         $request->validate(
             [
              'visitor_team' => 'required',
@@ -57,6 +70,7 @@ class GameController extends Controller
             ]
         );
         $game->update($request->all());
+    }
 
         return redirect()->route('games.show', $game);
 

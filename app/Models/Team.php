@@ -16,9 +16,9 @@ class Team extends Model
     }
     //relacion uno a muchos con Modelo Game
     public function games(){
-        return $this->hasMany(Game::class, 'home_team');
+        return $this->hasMany(Team::class, 'home_team');
     }
     public function oponent(){
-        return $this->hasMany(Game::class, 'visitor_team');
+        return $this->hasMany(Team::class, 'visitor_team');
     }
 }

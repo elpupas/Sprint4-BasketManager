@@ -27,6 +27,8 @@ class StoreGame extends FormRequest
             'stadium'=>'required|string',
             'game_date'=>'required',
             'game_time'=>'required',
+            'score_home' => 'nullable|integer',
+            'score_team' => 'nullable|integer'
             
             
         ];

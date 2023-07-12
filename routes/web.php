@@ -19,7 +19,7 @@ use App\Http\Controllers\TeamController;
 */
 
 Route::get('/', function () {
-    return view('teams.index');
+    return view('home');
 });
 
 Route::get('/dashboard', function () {

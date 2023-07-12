@@ -3,6 +3,8 @@
 namespace App\Models;
 
 
+
+use App\Models\Team;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,7 +18,7 @@ class Game extends Model
     }
     //relacion inversa con modelo Game
     public function visitorGames() {
-        return $this->belongsTo(Game::class,'visitor_team');
+        return $this->belongsTo(Team::class,'visitor_team');
     }
 
 }

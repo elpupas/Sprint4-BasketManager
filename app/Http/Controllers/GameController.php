@@ -10,12 +10,19 @@ use App\Models\Team;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GameController extends Controller
 {
     public function index(){
-       $games = Game::paginate();
-       return view('games.index', compact('games'));
+    
+           $user= Auth::user();
+          $team = $user->teams->first();
+           $games = Game::orderby('home_team', 'asc')->paginate(6);
+          
+    
+   
+       return view('games.index', compact('games', 'team'));
 
     }
     
@@ -33,6 +40,7 @@ class GameController extends Controller
     }
 
     public function edit(Game $game){
+        
         $teams = Team::all();	
         return view('games.edit', compact('game', 'teams'));
 
@@ -46,17 +54,9 @@ class GameController extends Controller
     }
 
     public function update(Request $request, Game $game){
-        $request->validate(
-            [
-             'visitor_team' => 'required',
-             'game_status'=>'required',
-             'stadium'=>'required',
-             'game_date'=>'required',
-             'game_time'=>'required',
-
-            ]
-        );
+   
         $game->update($request->all());
+    
 
         return redirect()->route('games.show', $game);
 

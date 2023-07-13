@@ -4,6 +4,8 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!--<h1>Todos los equipos</h1>-->
 
+@auth
+    
 
     <!-- component -->
     <x-app-layout class="">
@@ -69,5 +71,5 @@
 
 
 
-
+    @endauth
 @endsection

@@ -6,6 +6,9 @@
 @endsection
 
  <!--Components--> 
+ @auth
+     
+
     <x-app-layout>
         <x-slot name="header">
             <x-primary-button type="submit">
@@ -81,5 +84,6 @@
     </div>
  
     </x-app-layout>
+    @endauth
 
   

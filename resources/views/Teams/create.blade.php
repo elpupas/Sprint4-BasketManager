@@ -6,6 +6,8 @@
     @vite('resources/css/app.css')
 
 
+@auth
+    
 
     <x-app-layout>
         <x-slot name="header">
@@ -94,6 +96,6 @@
             </div>
         </div>
     </x-app-layout>
-
+    @endauth
 
 @endsection

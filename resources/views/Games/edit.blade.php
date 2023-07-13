@@ -1,8 +1,12 @@
 @extends('layouts.plantilla')
 @section('title', 'Edit')
 @section('content')
-   
+
 @endsection
+@auth
+    
+
+<!--Component-->
 <x-app-layout>
     <x-slot name="header">
         <x-primary-button type="submit">
@@ -26,17 +30,18 @@
                     </div>
                     <div class="mb-2 w-full">
 
-                        <label class="block text-purple-800 text-base font-semibold mb-1" for="home_team">Local Team </label>
-                        <select name="home_team" class="w-full px-3 py-1 border border-yellow-400 rounded-md focus:outline-none focus:border-yellow-500 hover:bg-yellow-500" >
+                        <label class="block text-purple-800 text-base font-semibold mb-1" for="home_team">Local Team
+                        </label>
+                        <select name="home_team"
+                            class="w-full px-3 py-1 border border-yellow-400 rounded-md focus:outline-none focus:border-yellow-500 hover:bg-yellow-500">
                             @foreach ($teams as $team)
                                 @if ($team->user_id === Auth::user()->id)
-                              
-                                    <option value="{{ $team->id }}" class="bg-white">{{Str::ucfirst($team->name)  }}</option>
-                                  
+                                    <option value="{{ $team->id }}" class="bg-white">{{ Str::ucfirst($team->name) }}
+                                    </option>
                                 @endif
-                            @endforeach                    
+                            @endforeach
                         </select>
-                       
+
                     </div>
                     <div class="mb-2 w-full">
 
@@ -47,7 +52,8 @@
                             read>
                             @foreach ($teams as $team)
                                 @if ($team->user_id !== Auth::user()->id)
-                                    <option value="{{ $team->id }}" class="bg-white">{{Str::ucfirst($team->name)  }}</option>
+                                    <option value="{{ $team->id }}" class="bg-white">{{ Str::ucfirst($team->name) }}
+                                    </option>
                                 @endif
                             @endforeach
                         </select>
@@ -61,11 +67,12 @@
                             class="w-full px-3 py-1 borderborder border-yellow-400 rounded-md focus:outline-none focus:border-yellow-500 hover:bg-yellow-500">
                             @foreach ($teams as $team)
                                 @if ($team->user_id === Auth::user()->id)
-                                    <option value="{{ $team->id }}" class="bg-white font-bold">{{Str::ucfirst($team->stadium) }}</option>
+                                    <option value="{{ $team->id }}" class="bg-white font-bold">
+                                        {{ Str::ucfirst($team->stadium) }}</option>
                                 @endif
                             @endforeach
                         </select>
-                        
+
                     </div>
                     <div class="mb-2 w-full">
 
@@ -74,7 +81,7 @@
                         <input
                             class="w-full px-3 py-1 border  border-yellow-400 rounded-md focus:outline-none hover:bg-purple-800 focus:border-yellow-500"
                             type="date" id="game_date" name="game_date" value="{{ $game->game_date }}">
-                       
+
                     </div>
                     <div class="mb-2 w-full">
 
@@ -83,7 +90,7 @@
                         <input
                             class="w-full px-3 py-1 border   border-yellow-400 rounded-md focus:outline-none focus:border-yellow-500 hover:bg-yellow-500"
                             type="time" id="game_time" name="game_time" value="{{ $game->game_time }}">
-                       
+
                     </div>
                     <div class="mb-2 w-full">
 
@@ -92,7 +99,7 @@
                         <input
                             class="w-full px-3 py-1 border  border-yellow-400 rounded-md focus:outline-none focus:border-yellow-500 hover:bg-purple-800"
                             type="number" id="score_home" name="score_home" value="{{ $game->score_home }}">
-                      
+
                     </div>
                     <div class="mb-2 w-full">
 
@@ -101,7 +108,7 @@
                         <input
                             class="w-full px-3 py-1 border hover:bg-yellow-500 border-yellow-400 rounded-md focus:outline-none focus:border-yellow-500"
                             type="number" id="score_visitor" name="score_visitor" value="{{ $game->score_visitor }}">
-                        
+
                     </div>
                     <div class="mb-2 w-full">
                         <label for="" class="block text-purple-800 text-base font-semibold mb-1 "
@@ -109,7 +116,7 @@
                         <select name="game_status"
                             class="w-full px-3 py-1 border border-yellow-400 rounded-md focus:outline-none bg-purple-800 text-white hover:bg-purple-800 focus:border-yellow-500">
 
-                            <option value="win" >win</option>
+                            <option value="win">win</option>
                             <option value="lose" class="">lose</option>
                             <option value="draw "class="bg-yellow-500">draw</option>
                             <option value="comin">coming soon</option>
@@ -124,3 +131,4 @@
         </div>
     </div>
 </x-app-layout>
+@endauth

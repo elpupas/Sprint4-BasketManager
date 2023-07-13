@@ -3,6 +3,8 @@
 @section('content')
 
 
+@auth
+    
 
 <x-app-layout>
     <!--header-->
@@ -140,6 +142,7 @@
 
 
 @endsection
+@endauth
 
 
 

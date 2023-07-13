@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('title', 'Show Game')
 
-
+@auth
 <x-app-layout>
     <x-slot name="header">
         <div class="flex space-x-14  justify-center ">
@@ -89,3 +89,6 @@
     </div>
 
 </x-app-layout>
+
+  
+@endauth

@@ -18,7 +18,7 @@ class GameController extends Controller
     
            $user= Auth::user();
           $team = $user->teams->first();
-           $games = Game::orderby('home_team', 'asc')->paginate(10);
+           $games = Game::orderby('home_team', 'asc')->paginate(6);
           
     
    
@@ -54,23 +54,9 @@ class GameController extends Controller
     }
 
     public function update(Request $request, Game $game){
-        $gameOne = Game::findOrFail($game);
-
-    if ($gameOne->localTeam->user_id !== Auth::user()->id) {
-        return redirect()->back()->with('error', 'No tienes permiso para editar este equipo.');
-    }else{
-        $request->validate(
-            [
-             'visitor_team' => 'required',
-             'game_status'=>'required',
-             'stadium'=>'required',
-             'game_date'=>'required',
-             'game_time'=>'required',
-
-            ]
-        );
+   
         $game->update($request->all());
-    }
+    
 
         return redirect()->route('games.show', $game);
 

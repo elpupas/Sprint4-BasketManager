@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center justify-center mt-5">
-                    <a href="{{ route('teams.index') }}">
+                    <a href="{{ url('/') }}">
                         <x-application-logo class="block   h-14 w-auto fill-current text-white dark:text-gray-200" />
                     </a>
                 </div>

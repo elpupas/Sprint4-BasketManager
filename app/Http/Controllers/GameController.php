@@ -15,17 +15,17 @@ use Illuminate\Support\Facades\Auth;
 class GameController extends Controller
 {
     public function index(){
-    
+
            $user= Auth::user();
           $team = $user->teams->first();
            $games = Game::orderby('home_team', 'asc')->paginate(6);
-          
-    
-   
+
+
+
        return view('games.index', compact('games', 'team'));
 
     }
-    
+
     public function show(Game $game){
         return view('games.show', compact('game'));
 
@@ -40,8 +40,8 @@ class GameController extends Controller
     }
 
     public function edit(Game $game){
-        
-        $teams = Team::all();	
+
+        $teams = Team::all();
         return view('games.edit', compact('game', 'teams'));
 
     }
@@ -54,9 +54,20 @@ class GameController extends Controller
     }
 
     public function update(Request $request, Game $game){
-   
+
+        $request->validate([
+            'visitor_team' => 'required',
+            'game_status'=>'required',
+            'stadium'=>'required|string',
+            'game_date'=>'required',
+            'game_time'=>'required',
+            'score_home' => 'nullable|integer',
+            'score_team' => 'nullable|integer',
+
+        ]);
+
         $game->update($request->all());
-    
+
 
         return redirect()->route('games.show', $game);
 

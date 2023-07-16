@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TeamController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +19,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+Route::middleware('auth')->group(function () {
+//Teams Route
+Route::resource('teams', TeamController::class);
+});
+//Games Route
+Route::middleware('auth')->group(function () {
+Route::controller(GameController::class)->group(function(){
+    Route::get('games/create/{id}','create')->name('games.create');
+    Route::post('games','store')->name('games.store');
+    Route::get('games/{game}','show')->name('games.show');
+    Route::get('games','index')->name('games.index');
+    Route::get('games/{game}/edit','edit')->name('games.edit');
+    Route::put('games/{game}','update')->name('games.update');
+    Route::delete('games/{game}','destroy')->name('games.destroy');
+
+});
+});
+

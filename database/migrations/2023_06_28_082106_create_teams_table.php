@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 90)->unique();
-            $table->string('coach',80);
-            $table->string('arena', 75);
+            $table->string('name', 50);
+            $table->string('coach',40);
+            $table->string('stadium', 50);
             $table->integer('players');
             $table->year('established_year');
             $table->unsignedBigInteger('user_id');

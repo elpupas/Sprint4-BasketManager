@@ -4,13 +4,13 @@
 
 @endsection
 @auth
-    
+
 
 <!--Component-->
 <x-app-layout>
     <x-slot name="header">
         <x-primary-button type="submit">
-            <a href="{{ route('games.show', $game) }}">Go Back</a>
+            <a href="{{ route('games.show', $game) }}">{{__('Go Back')}}</a>
         </x-primary-button>
     </x-slot>
     <div class="py-10">
@@ -30,7 +30,7 @@
                     </div>
                     <div class="mb-2 w-full">
 
-                        <label class="block text-purple-800 text-base font-semibold mb-1" for="home_team">Local Team
+                        <label class="block text-purple-800 text-base font-semibold mb-1" for="home_team">{{__('Local Team')}}
                         </label>
                         <select name="home_team"
                             class="w-full px-3 py-1 border border-yellow-400 rounded-md focus:outline-none focus:border-yellow-500 hover:bg-yellow-500">
@@ -45,8 +45,8 @@
                     </div>
                     <div class="mb-2 w-full">
 
-                        <label class="block text-purple-800 text-base font-semibold mb-1" for="visitor_team">Visitor
-                            Team </label>
+                        <label class="block text-purple-800 text-base font-semibold mb-1" for="visitor_team">{{__('Visitor
+                            Team')}} </label>
                         <select name="visitor_team"
                             class="w-full px-3 py-1 border border-yellow-400 rounded-md focus:outline-none focus:border-yellow-500  hover:bg-purple-800 transition-easy-out"
                             read>
@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="mb-2">
-                        <label class="block text-purple-800 text-base font-bold mb-1" for="stadium">Stadium</label>
+                        <label class="block text-purple-800 text-base font-bold mb-1" for="stadium">{{__('Stadium')}}</label>
 
                         <select name="stadium"
                             class="w-full px-3 py-1 borderborder border-yellow-400 rounded-md focus:outline-none focus:border-yellow-500 hover:bg-yellow-500">
@@ -76,8 +76,8 @@
                     </div>
                     <div class="mb-2 w-full">
 
-                        <label class="block text-purple-800 text-base font-semibold mb-1" for="game_date">Game
-                            Date</label>
+                        <label class="block text-purple-800 text-base font-semibold mb-1" for="game_date">{{__('Game
+                            Date')}}</label>
                         <input
                             class="w-full px-3 py-1 border  border-yellow-400 rounded-md focus:outline-none hover:bg-purple-800 focus:border-yellow-500"
                             type="date" id="game_date" name="game_date" value="{{ $game->game_date }}">
@@ -85,8 +85,8 @@
                     </div>
                     <div class="mb-2 w-full">
 
-                        <label class="block text-purple-800 text-base font-semibold mb-1" for="game_time">Game
-                            Time</label>
+                        <label class="block text-purple-800 text-base font-semibold mb-1" for="game_time">{{__('Game
+                            Time')}}</label>
                         <input
                             class="w-full px-3 py-1 border   border-yellow-400 rounded-md focus:outline-none focus:border-yellow-500 hover:bg-yellow-500"
                             type="time" id="game_time" name="game_time" value="{{ $game->game_time }}">
@@ -94,8 +94,8 @@
                     </div>
                     <div class="mb-2 w-full">
 
-                        <label class="block text-purple-800 text-base font-semibold mb-1" for="score_home">Score
-                            Home</label>
+                        <label class="block text-purple-800 text-base font-semibold mb-1" for="score_home">{{__('Score
+                            Home')}}</label>
                         <input
                             class="w-full px-3 py-1 border  border-yellow-400 rounded-md focus:outline-none focus:border-yellow-500 hover:bg-purple-800"
                             type="number" id="score_home" name="score_home" value="{{ $game->score_home }}">
@@ -103,8 +103,8 @@
                     </div>
                     <div class="mb-2 w-full">
 
-                        <label class="block text-purple-800 text-base font-semibold mb-1" for="score_visitor">Score
-                            Visitor</label>
+                        <label class="block text-purple-800 text-base font-semibold mb-1" for="score_visitor">{{__('Score
+                            Visitor')}}</label>
                         <input
                             class="w-full px-3 py-1 border hover:bg-yellow-500 border-yellow-400 rounded-md focus:outline-none focus:border-yellow-500"
                             type="number" id="score_visitor" name="score_visitor" value="{{ $game->score_visitor }}">
@@ -112,20 +112,20 @@
                     </div>
                     <div class="mb-2 w-full">
                         <label for="" class="block text-purple-800 text-base font-semibold mb-1 "
-                            for="game_status">Status</label>
+                            for="game_status">{{__('Status')}}</label>
                         <select name="game_status"
                             class="w-full px-3 py-1 border border-yellow-400 rounded-md focus:outline-none bg-purple-800 text-white hover:bg-purple-800 focus:border-yellow-500">
 
-                            <option value="win">win</option>
-                            <option value="lose" class="">lose</option>
-                            <option value="draw "class="bg-yellow-500">draw</option>
-                            <option value="comin">coming soon</option>
+                            <option value="win">{{__('Win')}}</option>
+                            <option value="lose" class="">{{__('Lose')}}</option>
+                            <option value="draw "class="bg-yellow-500">{{__('Draw')}}</option>
+                            <option value="comin">{{__('coming soon')}}</option>
                         </select>
 
                     </div>
                     <x-primary-button
                         class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
-                        type="submit">Update</x-primary-button>
+                        >{{__('Update')}}</x-primary-button>
                 </form>
             </div>
         </div>

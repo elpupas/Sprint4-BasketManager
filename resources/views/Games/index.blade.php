@@ -1,10 +1,12 @@
+@extends('layouts.plantilla')
 @section('title', 'Games')
 @section('content')
+
 
 @endsection
 <!--Components-->
 @auth
-    
+
 
 <x-app-layout>
 
@@ -21,6 +23,14 @@
     </x-slot>
     <div class="mx-10 mt-10">
         <!--Grid-->
+        @if ($games->count() === 0)
+        <div class="flex justify-center mb-8 items-center">
+            <a href="{{ route('games.index') }}"><img src="{{ asset('images/lakers.svg') }}" alt="Mi SVG"
+                    class="w-52 h-32">
+            </a>
+        </div>
+
+        @else
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
             <!-- Show games -->
 
@@ -63,6 +73,9 @@
                 </a>
             @endforeach
         </div>
+
+        @endif
+
     </div>
 </x-app-layout>
 @endauth

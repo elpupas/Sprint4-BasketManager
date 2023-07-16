@@ -17,10 +17,10 @@ class TeamController extends Controller
     {
         $user = Auth::user();
         $teams = $user->teams()->orderBy('name', 'asc')->paginate(12);
-    
+
         return view('teams.index', compact('teams'));
     }
-    
+
 
     public function create(){
 
@@ -39,6 +39,9 @@ class TeamController extends Controller
         if(Auth::check()) {
         $request->merge(['user_id' => $request->user()->id]);
         $team = Team::create($request->all());
+        return redirect()->route('teams.show', $team);
+        }else{
+                return redirect()->route('login');
         }
       /*  $team = new Team();
         $team->name = $request->name;
@@ -50,22 +53,26 @@ class TeamController extends Controller
      //  $user_id = Auth::id();
      //  $team->user_id = $user_id;
       //  $team->save();
-        return redirect()->route('teams.show', $team);
+
     }
     public function update(Request $request, Team $team){
-      /*  $request->validate(
+        if(Auth::check()){
+       $request->validate(
             [
-                'name' => 'required|min:5',
-                'coach'=>'required|min:5',
-                'stadium'=>'required|min:5',
-                'players'=>'required, max:55',
-                'establihed_year'=>'required',
+                'name' => 'required|string|min:5',
+                'coach'=>'required||string|min:7',
+                'stadium'=>'required|string|min:5',
+                'players'=>'required|integer|min:9',
+                'established_year'=>'required|date_format:Y|gte:1900'
 
             ]
-        );*/
+        );
         $team->update($request->all());
 
         return redirect()->route('teams.show', $team);
+    }else{
+        return redirect()->route('login');
+    }
 
     }
     public function destroy(Team $team){

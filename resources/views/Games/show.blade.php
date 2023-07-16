@@ -21,21 +21,48 @@
                 <a href="{{ route('games.create', $game) }}">Create Game</a>
             </x-primary-button>
 
-            <div>
-                <form action="{{ route('games.destroy', $game) }}" method="post">
-                    @csrf
-                    @method('delete')
-                    <x-danger-button type="submit">
-                        Delete Game
+            <x-danger-button x-data=""
+            x-on:click.prevent="$dispatch('open-modal', 'confirm-team-deletion')">
+            {{__('Delete Team')}}
+        </x-danger-button>
+
+        <!--Modal-->
+        <x-modal name="confirm-team-deletion" focusable>
+            <form method="post" action="{{ route('games.destroy',$game) }}" class="p-6">
+                @csrf
+                @method('delete')
+
+                <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                    {{ __('Are you sure you want to ') }}
+                    <span class="text-white bg-red-500">{{ __('delete') }}</span>
+                    {{ __(' this match?') }}
+                  </h2>
+
+
+                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                    {{ __('Once this match is deleted, all your data will be permanently deleted.') }}
+                </p>
+
+                <div class="mt-6 flex justify-end">
+                    <x-secondary-button x-on:click="$dispatch('close')">
+                        {{ __('Cancel') }}
+                    </x-secondary-button>
+
+                    <x-danger-button class="ml-3" type="submit">
+                        {{ __('Delete Match') }}
                     </x-danger-button>
-                </form>
-            </div>
+                </div>
+
+            </form>
+
+        </x-modal>
+
         </div>
     </x-slot>
     <div class="py-14">
 
         <div class="max-w-6xl mx-auto px-2 sm:px-2 md:px-4 lg:px-5 ">
-            <div class="flex justify-center mb-8  bg-repeat">
+            <div class="flex justify-center mb-8 items-center">
                 <a href="{{ route('games.index') }}"><img src="{{ asset('images/lakers.svg') }}" alt="Mi SVG"
                         class="w-52 h-32">
                 </a>
@@ -90,5 +117,5 @@
 
 </x-app-layout>
 
-  
+
 @endauth

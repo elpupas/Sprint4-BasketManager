@@ -39,10 +39,12 @@ To run the application on your local environment, follow these steps:
 
 1. Clone the repository from GitHub: `git clone <REPOSITORY_URL>`
 2. Install project dependencies: `composer install`
-3. Copy the `.env.example` file and rename it to `.env`. Configure the environment variables, such as the database connection.
-4. Generate a new application key: `php artisan key:generate`
-5. Run the database migrations: `php artisan migrate`
-6. Start the local server: `php artisan serve`
+3. Install the npm dependencies: `npm install`
+4. Copy the `.env.example` file and rename it to `.env`. Configure the environment variables, such as the database connection.
+5. Generate a new application key: `php artisan key:generate`
+6. Run the database migrations: `php artisan migrate`
+7. Start the local server: `php artisan serve`
+8. In a new terminal window, compile the frontend assets using Vite: `npm run dev`
 
 Great! You can now access the application from your local browser using the URL provided by the local server.
 
@@ -96,10 +98,12 @@ Para ejecutar la aplicación en tu entorno local, sigue estos pasos:
 
 1. Clona el repositorio desde GitHub: `git clone <URL_DEL_REPOSITORIO>`
 2. Instala las dependencias del proyecto: `composer install`
-3. Copia el archivo `.env.example` y renómbralo como `.env`. Configura las variables de entorno, como la conexión de la base de datos.
-4. Genera una nueva clave de aplicación: `php artisan key:generate`
-5. Ejecuta las migraciones de la base de datos: `php artisan migrate`
-6. Inicia el servidor local: `php artisan serve`
+3. Instala las dependencias npm:  `npm install`
+4. Copia el archivo `.env.example` y renómbralo como `.env`. Configura las variables de entorno, como la conexión de la base de datos.
+5. Genera una nueva clave de aplicación: `php artisan key:generate`
+6. Ejecuta las migraciones de la base de datos: `php artisan migrate`
+7. Inicia el servidor local: `php artisan serve`
+8. En una nueva ventana de terminal, compila los assets de Frontend utilizando Vite:  `npm run dev`
 
 ¡Listo! Ahora puedes acceder a la aplicación desde tu navegador local utilizando la URL proporcionada por el servidor local.
 

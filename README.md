@@ -24,7 +24,22 @@ The application offers the following key features:
 
 Before being able to manage teams and matches, users need to register and authenticate in the application. This ensures the security and protection of the tournament data.
 
-**Note (English):**
+## Users Created by Factory
+
+To facilitate testing of this application, example users have been created using factories. You can use the following users to access the application:
+
+1. **User 1:**
+   - **Email:** player@example.com
+   - **Password:** 12345678
+
+2. **User 2:**
+   - **Email:** player2@example.com
+   - **Password:** 12345678
+
+These users will allow you to quickly and easily explore and test the functionalities of the application.
+
+
+**Note:**
 
 To create matches between teams, it is important to consider that the matches should involve teams registered by different users. This ensures the integrity of the tournaments and avoids conflicts of interest. If a user registers multiple teams, it is recommended to schedule matches between teams owned by other users to maintain fairness in the tournament.
 
@@ -87,9 +102,24 @@ La aplicación ofrece las siguientes funcionalidades principales:
 
 Antes de poder gestionar equipos y partidos, los usuarios deben registrarse y autenticarse en la aplicación. Esto garantiza la seguridad y protección de los datos del torneo.
 
-**Nota (Español):**
+**Nota:**
 
 Para crear partidos entre equipos, es importante tener en cuenta que los partidos deben involucrar a equipos registrados por usuarios distintos. Esto garantiza la integridad de los torneos y evita conflictos de interés. Si un usuario registra varios equipos, se recomienda que los partidos se programen entre equipos de otros usuarios para mantener la imparcialidad en el torneo.
+
+## Usuarios Creados por Factory
+
+Para facilitar la prueba de esta aplicación, se han creado usuarios de ejemplo mediante factories. Puedes utilizar los siguientes usuarios para acceder a la aplicación:
+
+1. **Usuario 1:**
+   - **Correo Electrónico:** player@example.com
+   - **Contraseña:** 12345678
+
+2. **Usuario 2:**
+   - **Correo Electrónico:** player2@example.com
+   - **Contraseña:** 12345678
+
+Estos usuarios te permitirán explorar y probar las funcionalidades de la aplicación de manera rápida y sencilla.
+
 
 ## Tecnologías Utilizadas
 

@@ -1,4 +1,4 @@
-### English:
+### **English:**
 
 # Lakers-Sponsored Tournaments for Kids
 
@@ -23,6 +23,10 @@ The application offers the following key features:
 ## Requirements
 
 Before being able to manage teams and matches, users need to register and authenticate in the application. This ensures the security and protection of the tournament data.
+
+**Note (English):**
+
+To create matches between teams, it is important to consider that the matches should involve teams registered by different users. This ensures the integrity of the tournaments and avoids conflicts of interest. If a user registers multiple teams, it is recommended to schedule matches between teams owned by other users to maintain fairness in the tournament.
 
 ## Technologies Used
 
@@ -57,7 +61,7 @@ If you'd like to contribute to the development of this application, you're welco
 This application is distributed under the MIT License. Please refer to the `LICENSE` file for more information.
 
 
-### Español:
+### **Español:**
 
 # Torneos para Niños Patrocinados por los Lakers
 
@@ -82,6 +86,10 @@ La aplicación ofrece las siguientes funcionalidades principales:
 ## Requisitos
 
 Antes de poder gestionar equipos y partidos, los usuarios deben registrarse y autenticarse en la aplicación. Esto garantiza la seguridad y protección de los datos del torneo.
+
+**Nota (Español):**
+
+Para crear partidos entre equipos, es importante tener en cuenta que los partidos deben involucrar a equipos registrados por usuarios distintos. Esto garantiza la integridad de los torneos y evita conflictos de interés. Si un usuario registra varios equipos, se recomienda que los partidos se programen entre equipos de otros usuarios para mantener la imparcialidad en el torneo.
 
 ## Tecnologías Utilizadas
 
@@ -109,4 +117,8 @@ Para ejecutar la aplicación en tu entorno local, sigue estos pasos:
 
 ## Contribuciones
 
-Si deseas contribuir al desarrollo de esta aplicación, ¡eres bienvenido! Puedes realizar un "fork" del repositorio, hacer tus modificaciones y enviar una solicitud de extracción para revisar
+Si deseas contribuir al desarrollo de esta aplicación, ¡eres bienvenido! Puedes realizar un "fork" del repositorio, hacer tus modificaciones y enviar una solicitud de extracción para revisar tus cambios.
+
+## Licencia
+
+Esta aplicación se distribuye bajo la Licencia MIT. Consulta el archivo `LICENSE` para obtener más información.

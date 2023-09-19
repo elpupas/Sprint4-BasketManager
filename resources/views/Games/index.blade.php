@@ -13,12 +13,12 @@
     <x-slot name="header">
         <div class=" justify-end sm:justify-end md:justify-end">
             <!--Button-->
-            @if ($games->count() > 0)
+          
                 <x-primary-button type="button"
                     class="border border-indigo-500 bg-indigo-700 text-white rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
                     <a href="{{ route('games.create', $team) }}">Create Game</a>
                 </x-primary-button>
-            @endif
+
 
     </x-slot>
     <div class="mx-10 mt-10">

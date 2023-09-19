@@ -16,7 +16,7 @@
                         {{ $name= Str::ucfirst(Auth::user()->name ) }}
                     </x-nav-link>
                 </div>
-                
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <!--Teams-->
                     <x-nav-link :href="route('teams.index')" :active="request()->routeIs('teams.index')">
